@@ -7,7 +7,7 @@
 
 	<groupId>com.gmail.ascanada52</groupId>
 	<artifactId>3d-map</artifactId>
-	<version>1.0.0.alpha-RELEASE</version>
+	<version>1.0.1</version>
 	<name>3d-map</name>
 	<packaging>war</packaging>
 	
@@ -195,7 +195,7 @@
 		<dependency>
 			<groupId>com.gmail.ivansergeish</groupId>
 			<artifactId>worlds-front-end</artifactId>
-			<version>1.0.1</version>
+			<version>${project.version}</version>
 		</dependency>		
 		<dependency>
 			<groupId>junit</groupId>
