@@ -1,0 +1,60 @@
+<!doctype html>
+   <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Solar System - Intro (1)</title>
+        <!-- The following group of libraries provided by their authors-->
+        <script src="three.min.js"></script>
+        <script src="OBJLoader.js"></script>
+        <script src="jquery-3.4.1.min.js"></script>
+<!---->
+<!--
+        <script src = "http://threejs.org/build/three.min.js"></script>
+        <script src = "https://mamboleoo.be/learnThree/demos/OBJLoader.js"></script>
+        <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
+-->
+        <!--<script src="OBJLoader.js"></script>-->
+
+
+        <script src="MTLLoader.js"></script>
+        <!--<script src = "https://mamboleoo.be/learnThree/demos/OBJLoader.js"></script>-->
+        <!--<script src="jquery-3.4.1.min.js"></script>-->
+        <!--<script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+
+        <script src="3dviewer/js/ObjectsList.js"></script>
+        <script src="3dviewer/js/ObjectOnMap.js"></script>
+        <script src="3dviewer/js/XYZ.js"></script>
+        <script src="3dviewer/js/MapFrame.js"></script>
+        <script src="3dviewer/js/LocationWatcher.js"></script>
+        <script src="3dviewer/js/CoordinatesTransformator.js"></script>
+ 		<script src="3dviewer/js/MapCanvas.js"></script>
+    </head>
+
+<body>
+
+<script>
+
+var mapCanvas = new MapCanvas('https://10.42.0.1:8443/api-launcher-1.0.0.alpha-RELEASE', 100, 3.14 / 18000, 1, new XYZ(-10, 1, -20), 10);
+var locationWatcher = new LocationWatcher(mapCanvas, 0.0001, new XYZ(37.8482717, 0, 55.9235663));
+//var locationWatcher = new LocationWatcher(mapCanvas, 0.0001, new XYZ(55.9235663, 0, 37.8482717));
+$( document ).ready(function() {
+    console.log( "ready!" );
+    //var mapCanvas = new MapCanvas('https://10.42.0.1:8443/api-launcher-1.0.0.alpha-RELEASE', 100, 3.14 / 18000, 1, new XYZ(0, 0, 0), 50);
+      //locationWatcher = new LocationWatcher(mapCanvas, 0.0001, new XYZ(37.8482717, 0, 55.9235663));
+      if (navigator.geolocation){
+          navigator.geolocation.watchPosition(watchPosition,onError,{frequency:5000,maximumAge:0,timeout:10000,enableHighAccuracy:true});
+      } else {
+          
+      }
+    mapCanvas.init();
+});
+function onError(err){
+  console.log( "not suported" );
+}
+
+function watchPosition(position) {
+  this.locationWatcher.checkPosition(position);
+}
+</script>
+
+</body>
