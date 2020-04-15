@@ -1,0 +1,28 @@
+The project is based on https://github.com/IvanSergeiSh/Worlds-Launcher
+it is intended to visualize 3D-map via Internet browser, 
+also it will support audio tracks which will describe landmarks 
+and may be animations. 
+
+Settings:
+1) You shold download and mvn clean install the following projects:
+    Worlds-tools         https://github.com/Aleksey-S-58/Worlds-tools
+    Worlds-frontend      https://github.com/IvanSergeiSh/Worlds-frontend
+    Worlds_map_uploader  https://github.com/IvanSergeiSh/Worlds_map_uploader
+2) Install postgresql and create your database and user
+3) Adjust database login, password, url in pom.xml of the project
+4) Run liquibase maven plugin in the project (mvn liquibase:update)
+5) Save images of forward, backward, upward, downward arrows to your database via
+   project Worlds-3do-jdbc-uploader https://github.com/Aleksey-S-58/worlds-3do-jdbc-uploader
+6) publish your 3d map via Worlds_map_uploader (if you have it in *.obj file)
+7) specify radius of map reloading in Worlds_map_uploader/index.html
+
+var mapCanvas = 
+new MapCanvas('http://localhost:8080/api-launcher-1.0.0.alpha-RELEASE', 100, 3.14 / 18000, 1, new XYZ(0, 0, 0), /* radius of map reloading*/ 50);
+
+8) cd 3d-map, mvn clean install.
+9) The project will be assembled to web application. You can publish it on your web-server.
+10) You can view your map entering link http://localhost:8080/3d-map-1.0.0.alpha-RELEASE/index.html
+
+Authors: 
+Ivan Shishkin,
+Aleksey Shishkin
