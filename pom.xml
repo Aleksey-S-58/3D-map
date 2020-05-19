@@ -80,7 +80,7 @@
 							<includeGroupIds>com.gmail.ivansergeish</includeGroupIds>
 							<includeArtifactIds>worlds-front-end</includeArtifactIds>
 							<outputDirectory>${basedir}/WebContent/3dviewer</outputDirectory>
-							<includes>**/*.js, **/*.png, **/*.jpg</includes>
+							<includes>**/*.js, **/*.css, **/*.png, **/*.jpg</includes>
 						</configuration>
 					</execution>
 				</executions>

@@ -9,6 +9,8 @@ public class ResourceConfiguration implements WebMvcConfigurer {
         registry.addResourceHandler("/*.html").addResourceLocations("/");
         registry.addResourceHandler("/3dviewer/js/*.js").addResourceLocations("/3dviewer/js/");
         registry.addResourceHandler("/*.js").addResourceLocations("/");
+        registry.addResourceHandler("/*.css").addResourceLocations("/");
+        registry.addResourceHandler("/*.png").addResourceLocations("/");
     }
 
 }
