@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.storydiv {
+	position: absolute;
+	top: 10%;
+	left: 30px;
+	width: 80%;
+	opacity: 0.5;
+}
+
+label {
+	font-weight: bold;
+	font-size: 200%;
+	color: blue;
+}

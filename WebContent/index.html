@@ -28,12 +28,14 @@
         <script src="3dviewer/js/LocationWatcher.js"></script>
         <script src="3dviewer/js/CoordinatesTransformator.js"></script>
  		<script src="3dviewer/js/MapCanvas.js"></script>
+ 		<script src="CustomEffectListener.js"></script>
+ 		<link rel="stylesheet" href="story.css">
     </head>
 
 <body>
 
 <script>
-
+// default loction /map/1/-20/-10
 var mapCanvas = new MapCanvas('https://10.42.0.1:8443/api-launcher-1.0.0.alpha-RELEASE', 100, 3.14 / 18000, 1, new XYZ(-10, 1, -20), 10);
 var locationWatcher = new LocationWatcher(mapCanvas, 0.0001, new XYZ(37.8482717, 0, 55.9235663));
 //var locationWatcher = new LocationWatcher(mapCanvas, 0.0001, new XYZ(55.9235663, 0, 37.8482717));
