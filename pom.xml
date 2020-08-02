@@ -110,7 +110,7 @@
             			<port>11080</port>
         			</httpConnector>
         			<httpConnector>
-            			<port>8443</port>
+            			<port>8444</port>
         			</httpConnector>        			
     			</configuration>
     			<executions>
