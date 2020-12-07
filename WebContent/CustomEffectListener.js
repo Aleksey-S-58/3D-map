@@ -29,11 +29,11 @@ function EffectListener () {
  * MapCanvas.customObjectsOnScene - contains a list of custom objects which were already added to a scene,
  * incoming object will be added to the list after execution of this function.
  */
-EffectListener.prototype.process = function (name, type, latitude, longitude, hight, mapCanvas) {
+EffectListener.prototype.process = function (objectOnMap, mapCanvas) {
 	// This method will print name of a story on a DIV element.
-	if (type == this.storyType) {
+	if (objectOnMap.type == this.storyType) {
 		if (this.storyCounter < this.maxStoryCount) {
-			this.addStory(name, mapCanvas);
+			this.addStory(objectOnMap.name, objectOnMap.description, mapCanvas);
 			this.storyCounter = this.storyCounter + 1;
 		}
 	}
@@ -42,13 +42,13 @@ EffectListener.prototype.process = function (name, type, latitude, longitude, hi
 /**
  * The method adds a label with a function associated with the name of a story. 
  */
-EffectListener.prototype.addStory = function (name, mapCanvas) {
+EffectListener.prototype.addStory = function (name, description, mapCanvas) {
 	customEffectListener = this;
 	div = this.addDivIfAbsent(this.storyDiv);
 	if (!this.isPlayed(name) && !this.isPublished(name)) {
 		var label = document.createElement("label");
 		label.setAttribute("id", this.getLabelName(name));
-		label.innerHTML = "<br><image src='Story.png'/>" + name;
+		label.innerHTML = "<br><image src='Story.png'/>" + description;
 		label.addEventListener("click", function() {
 			customEffectListener.loadStory(name, mapCanvas);
 		}); // Add function.
