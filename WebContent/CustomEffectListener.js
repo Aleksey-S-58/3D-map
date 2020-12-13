@@ -119,7 +119,7 @@ EffectListener.prototype.findNotPlayed = function(mapCanvas) {
 		if (mapCanvas.customObjectsOnScene[i].type = this.storyType
 				&& !this.isPlayed(mapCanvas.customObjectsOnScene[i].name)
 				&& !this.isPublished(mapCanvas.customObjectsOnScene[i].name)) {
-			return mapCanvas.customObjectsOnScene[i].name;
+			return mapCanvas.customObjectsOnScene[i];
 		}
 	}
 	return null;
@@ -137,9 +137,11 @@ EffectListener.prototype.loadStory = function (name, mapCanvas) {
 	element.parentNode.removeChild(element);
 	this.storyCounter = this.storyCounter - 1;
 	// remove object played object mapCanvas.customObjectList
-	var newName = this.findNotPlayed(mapCanvas);// add some other not played object
+	var newObject = this.findNotPlayed(mapCanvas);// add some other not played object
+	var newName = newObject.name;
+	var newDescription = newObject.description;
 	if (newName != null) {
-		this.addStory(newName, mapCanvas);
+		this.addStory(newName, newDescription, mapCanvas);
 	}
 	mapCanvas.removeByValue(this.publishedStoryList, name);// REMOVE BY VALUE
 }
